@@ -3,8 +3,10 @@ include 'header_eval.php';
 
 session_start();
 
-if(empty($_SESSION['contacts'])){
-    $_SESSION['contacts']= [];
+$contacts = ['name', 'firstName', 'gsm', 'email'];
+
+if(empty($_SESSION["recuper-donnees-formulaire.php"])){
+    $_SESSION["recuper-donnees-formulaire.php"]= [];
 }
 
 if (!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['gsm']) && !empty($_POST['email'])){
@@ -13,15 +15,11 @@ if (!empty($_POST['name']) && !empty($_POST['firstName']) && !empty($_POST['gsm'
         $gsm = $_POST['gsm'];
         $userEmail = $_POST['email'];
 
-
-
 } else {
 
 ?>
-
-
     <h1>Répertoire</h1>
-    <form action="Evaluation-W14 - Procedural.php" method="POST">
+    <form action="recuper-donnees-formulaire.php" method="POST">
         <div>
             <div class="col-6">
                 <label for="name">Nom</label>
